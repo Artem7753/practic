@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+}
+
+.header__logo{
+    display: flex;
+    width: 30%;
+    background: blue;
+}
+
+.header__logo__text{
+    margin: auto;
+    color: white;
+    font-size: 15px;
+}
+
+.header__nav{
+    display: flex;
+    width: 70%;
+    background: lightblue;
+}
+
+.header__nav__menu{
+    margin: auto;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header__nav__menu__item{
+    display: flex;
+    margin: auto;
+    width: 30%;
+    height: 100%;
+    padding: 1em;
+}
+.header__nav__menu__item__link{
+    margin: auto;
+    text-decoration: none;
+}
+
+.header__nav__menu__item:hover{
+    cursor: pointer;
+    background: white;
+}
+

@@ -1,0 +1,25 @@
+.poster{
+    display: flex;
+    flex-direction: column;
+    background: url(http://www.zastavki.com/pictures/originals/2013/Cities__039053_.jpg);
+    padding: 5em;
+}
+
+.poster__photo{
+    border: 2px solid white;
+    border-radius: 100px;
+    width: 30%;
+    margin: auto;
+}
+
+.poster__title{
+    margin: auto;
+    color: white;
+    padding: 1em;
+}
+
+.poster__description{
+    color: white;
+    padding: 1em;
+    margin: auto;
+}

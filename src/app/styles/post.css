@@ -1,0 +1,46 @@
+.post{
+    display: flex;
+    margin:  1em auto;
+    width: 90%;
+    height: 400px;
+    background: lightblue;
+    justify-content: space-around;
+}
+
+.post__image{
+    width: 45%;
+    padding: 1em;
+}
+
+.post__image__pic{
+    width: 100%;
+    height: 100%;
+}
+
+.post__info{
+    width: 45%;
+    padding: 1em;
+}
+
+.post__info__title{
+    margin: auto;
+}
+
+.post__info__description{
+    width: 70%;
+    padding-top: 1em;
+    overflow: scroll;
+    height: 80%;
+}
+
+.button{
+    width: 50%;
+    padding: 0.5em;
+    background: blue;
+    display: flex;
+}
+
+.button__text{
+    color: white;
+    margin: auto;
+}
