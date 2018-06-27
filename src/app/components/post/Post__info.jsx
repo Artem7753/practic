@@ -14,7 +14,7 @@ export default class Post__info extends React.Component {
                 odit asperiores unde adipisci quas sequi sunt nesciunt expedita cupiditate, natus ipsam possimus ipsa eveniet. 
                 Dicta, atque accusamus!
              </p>
-             <Button text={"More.."}/>
+             <Button text={this.props.buttontext} appstate={this.props.appstate}/>
         </div>
     }
 }

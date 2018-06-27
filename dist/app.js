@@ -21956,9 +21956,17 @@
 
 	var _Poster2 = _interopRequireDefault(_Poster);
 
-	var _Post = __webpack_require__(209);
+	var _Post = __webpack_require__(195);
 
 	var _Post2 = _interopRequireDefault(_Post);
+
+	var _Footer = __webpack_require__(215);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
+	var _FullPost = __webpack_require__(218);
+
+	var _FullPost2 = _interopRequireDefault(_FullPost);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21974,26 +21982,40 @@
 	    function App() {
 	        _classCallCheck(this, App);
 
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+	        _this.state = { condition: false };
+	        _this.showFullPost = _this.showFullPost.bind(_this);
+	        return _this;
 	    }
 
 	    _createClass(App, [{
+	        key: 'showFullPost',
+	        value: function showFullPost() {
+	            this.setState({ condition: !this.state.condition });
+	            console.log(this.state);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                null,
+	                this.state.condition && _react2.default.createElement(_FullPost2.default, { image: "https://ivbg.ru/wp-content/uploads/2017/11/34a05f4b_resizedScaled_1020to573-1.jpg", appstate: this.showFullPost }),
 	                _react2.default.createElement(_Header2.default, null),
 	                _react2.default.createElement(_Poster2.default, null),
-	                _react2.default.createElement(_Post2.default, { image: "http://s.4pda.to/Bjyyg3Tcrv0BdV8Y7mCPSsTswwgDaluY9qeh.jpg" }),
-	                _react2.default.createElement(_Post2.default, { image: "https://ivbg.ru/wp-content/uploads/2017/11/34a05f4b_resizedScaled_1020to573-1.jpg" }),
-	                _react2.default.createElement(_Post2.default, { image: "https://rozetked.me/images/uploads/RdsxNPHzabgX.jpg" })
+	                _react2.default.createElement(_Post2.default, { image: "http://s.4pda.to/Bjyyg3Tcrv0BdV8Y7mCPSsTswwgDaluY9qeh.jpg", appstate: this.showFullPost }),
+	                _react2.default.createElement(_Post2.default, { image: "https://ivbg.ru/wp-content/uploads/2017/11/34a05f4b_resizedScaled_1020to573-1.jpg", appstate: this.showFullPost }),
+	                _react2.default.createElement(_Post2.default, { image: "https://rozetked.me/images/uploads/RdsxNPHzabgX.jpg", appstate: this.showFullPost }),
+	                _react2.default.createElement(_Footer2.default, null)
 	            );
 	        }
 	    }]);
 
 	    return App;
 	}(_react2.default.Component);
+	//  <FullPost image={"https://ivbg.ru/wp-content/uploads/2017/11/34a05f4b_resizedScaled_1020to573-1.jpg"}/>
+
 
 	exports.default = App;
 
@@ -22643,21 +22665,7 @@
 
 
 /***/ }),
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22673,13 +22681,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(210);
+	__webpack_require__(196);
 
-	var _Post__img = __webpack_require__(212);
+	var _Post__img = __webpack_require__(198);
 
 	var _Post__img2 = _interopRequireDefault(_Post__img);
 
-	var _Post__info = __webpack_require__(213);
+	var _Post__info = __webpack_require__(199);
 
 	var _Post__info2 = _interopRequireDefault(_Post__info);
 
@@ -22707,7 +22715,7 @@
 	                'div',
 	                { className: 'post' },
 	                _react2.default.createElement(_Post__img2.default, { image: this.props.image }),
-	                _react2.default.createElement(_Post__info2.default, null)
+	                _react2.default.createElement(_Post__info2.default, { buttontext: "More..", appstate: this.props.appstate })
 	            );
 	        }
 	    }]);
@@ -22718,13 +22726,13 @@
 	exports.default = Post;
 
 /***/ }),
-/* 210 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(211);
+	var content = __webpack_require__(197);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(191)(content, {});
@@ -22744,7 +22752,7 @@
 	}
 
 /***/ }),
-/* 211 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(190)();
@@ -22752,13 +22760,13 @@
 
 
 	// module
-	exports.push([module.id, ".post{\n    display: flex;\n    margin:  1em auto;\n    width: 90%;\n    height: 400px;\n    background: lightblue;\n    justify-content: space-around;\n}\n\n.post__image{\n    width: 45%;\n    padding: 1em;\n}\n\n.post__image__pic{\n    width: 100%;\n    height: 100%;\n}\n\n.post__info{\n    width: 45%;\n    padding: 1em;\n}\n\n.post__info__title{\n    margin: auto;\n}\n\n.post__info__description{\n    width: 70%;\n    padding-top: 1em;\n    overflow: scroll;\n    height: 80%;\n}\n\n.button{\n    width: 50%;\n    padding: 0.5em;\n    background: blue;\n    display: flex;\n}\n\n.button__text{\n    color: white;\n    margin: auto;\n}", ""]);
+	exports.push([module.id, ".post{\n    display: flex;\n    margin:  1em auto;\n    width: 90%;\n    height: 400px;\n    background: lightblue;\n    justify-content: space-around;\n    border-radius: 10px;\n}\n\n.post__image{\n    width: 45%;\n    padding: 1em;\n}\n\n.post__image__pic{\n    width: 100%;\n    height: 100%;\n    border-radius: 10px;\n}\n\n.post__info{\n    width: 45%;\n    padding: 1em;\n}\n\n.post__info__title{\n    margin: auto;\n}\n\n.post__info__description{\n    width: 70%;\n    padding-top: 1em;\n    overflow: scroll;\n    height: 80%;\n}\n\n.button{\n    width: 50%;\n    padding: 0.5em;\n    background: blue;\n    display: flex;\n}\n\n.button__text{\n    color: white;\n    margin: auto;\n}\n\n.fullpost{\n    display: flex;\n    margin:  1em auto;\n    width: 100%;\n    height: 70%;\n    background: lightblue;\n    justify-content: space-around;\n}\n\n.post-wrapper{\n    position: fixed;\n    z-index: 2;\n    background: rgba(115, 3, 228, 0.603);\n    display: flex;\n    margin: auto;\n    height: 100%;\n    align-items: center;\n    width: 100%;\n}", ""]);
 
 	// exports
 
 
 /***/ }),
-/* 212 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22808,7 +22816,7 @@
 	exports.default = Post__img;
 
 /***/ }),
-/* 213 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22824,7 +22832,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _button = __webpack_require__(214);
+	var _button = __webpack_require__(200);
 
 	var _button2 = _interopRequireDefault(_button);
 
@@ -22861,7 +22869,7 @@
 	                    { className: 'post__info__description' },
 	                    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati id esse perferendis odit asperiores unde adipisci quas sequi sunt nesciunt expedita cupiditate, natus ipsam possimus ipsa eveniet. Dicta, atque accusamus!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati id esse perferendis odit asperiores unde adipisci quas sequi sunt nesciunt expedita cupiditate, natus ipsam possimus ipsa eveniet. Dicta, atque accusamus!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati id esse perferendis odit asperiores unde adipisci quas sequi sunt nesciunt expedita cupiditate, natus ipsam possimus ipsa eveniet. Dicta, atque accusamus!'
 	                ),
-	                _react2.default.createElement(_button2.default, { text: "More.." })
+	                _react2.default.createElement(_button2.default, { text: this.props.buttontext, appstate: this.props.appstate })
 	            );
 	        }
 	    }]);
@@ -22872,10 +22880,10 @@
 	exports.default = Post__info;
 
 /***/ }),
-/* 214 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -22887,6 +22895,14 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _FullPost = __webpack_require__(218);
+
+	var _FullPost2 = _interopRequireDefault(_FullPost);
+
+	var _App = __webpack_require__(184);
+
+	var _App2 = _interopRequireDefault(_App);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22906,14 +22922,18 @@
 	    }
 
 	    _createClass(Button, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "button" },
+	                'div',
+	                { className: 'button', onClick: function onClick() {
+	                        return _this2.props.appstate();
+	                    } },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "button__text" },
+	                    'div',
+	                    { className: 'button__text' },
 	                    this.props.text
 	                )
 	            );
@@ -22924,6 +22944,181 @@
 	}(_react2.default.Component);
 
 	exports.default = Button;
+
+/***/ }),
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(216);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Footer = function (_React$Component) {
+	    _inherits(Footer, _React$Component);
+
+	    function Footer() {
+	        _classCallCheck(this, Footer);
+
+	        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
+	    }
+
+	    _createClass(Footer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'footer' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'footer__text' },
+	                    'React practic'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Footer;
+	}(_react2.default.Component);
+
+	exports.default = Footer;
+
+/***/ }),
+/* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(217);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(191)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../../node_modules/css-loader/index.js!./footer.css", function() {
+				var newContent = require("!!../../../../node_modules/css-loader/index.js!./footer.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 217 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(190)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".footer{\n    width: 100%;\n    padding: 1em;\n    background: blue;\n    display: flex;\n}\n\n.footer__text{\n    color: white;\n    margin: auto;\n}\n\n.footer__text::before{\n    content: \"\\A9\";\n}", ""]);
+
+	// exports
+
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(196);
+
+	var _Post__img = __webpack_require__(198);
+
+	var _Post__img2 = _interopRequireDefault(_Post__img);
+
+	var _Post__info = __webpack_require__(199);
+
+	var _Post__info2 = _interopRequireDefault(_Post__info);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var FullPost = function (_React$Component) {
+	    _inherits(FullPost, _React$Component);
+
+	    function FullPost() {
+	        _classCallCheck(this, FullPost);
+
+	        return _possibleConstructorReturn(this, (FullPost.__proto__ || Object.getPrototypeOf(FullPost)).apply(this, arguments));
+	    }
+
+	    _createClass(FullPost, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'post-wrapper' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'fullpost' },
+	                    _react2.default.createElement(_Post__img2.default, { image: this.props.image }),
+	                    _react2.default.createElement(_Post__info2.default, { buttontext: "Back", appstate: this.props.appstate })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return FullPost;
+	}(_react2.default.Component);
+
+	exports.default = FullPost;
 
 /***/ })
 /******/ ]);

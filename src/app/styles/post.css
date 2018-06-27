@@ -5,6 +5,7 @@
     height: 400px;
     background: lightblue;
     justify-content: space-around;
+    border-radius: 10px;
 }
 
 .post__image{
@@ -15,6 +16,7 @@
 .post__image__pic{
     width: 100%;
     height: 100%;
+    border-radius: 10px;
 }
 
 .post__info{
@@ -43,4 +45,24 @@
 .button__text{
     color: white;
     margin: auto;
+}
+
+.fullpost{
+    display: flex;
+    margin:  1em auto;
+    width: 100%;
+    height: 70%;
+    background: lightblue;
+    justify-content: space-around;
+}
+
+.post-wrapper{
+    position: fixed;
+    z-index: 2;
+    background: rgba(115, 3, 228, 0.603);
+    display: flex;
+    margin: auto;
+    height: 100%;
+    align-items: center;
+    width: 100%;
 }

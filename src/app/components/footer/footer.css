@@ -1,0 +1,15 @@
+.footer{
+    width: 100%;
+    padding: 1em;
+    background: blue;
+    display: flex;
+}
+
+.footer__text{
+    color: white;
+    margin: auto;
+}
+
+.footer__text::before{
+    content: "©";
+}

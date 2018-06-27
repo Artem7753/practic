@@ -7,7 +7,7 @@ export default class Post extends React.Component {
     render() {
         return <div className="post">
            <Post__img image={this.props.image}/>
-           <Post__info/>
+           <Post__info buttontext={"More.."} appstate={this.props.appstate}/>
         </div>
     }
 }
