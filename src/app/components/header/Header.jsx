@@ -1,7 +1,7 @@
 import React from 'react';
-import Header__logo from './Header__logo';
-import Header__nav from './Header__nav';
-import '../../styles/head.css';
+import Header__logo from './HeaderLogo';
+import Header__nav from './HeaderNav';
+import './head.css';
 
 export default class Header extends React.Component{
     render(){

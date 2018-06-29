@@ -6,6 +6,7 @@
     background: lightblue;
     justify-content: space-around;
     border-radius: 10px;
+    position: relative;
 }
 
 .post__image{
@@ -65,4 +66,33 @@
     height: 100%;
     align-items: center;
     width: 100%;
+}
+
+.detele-button{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: rgba(47, 0, 255, 0.507);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    right: 0;
+}
+
+.detele-button:hover{
+    background: rgba(255, 0, 0, 0.719);
+    cursor: pointer;
+}
+
+.inputform{
+    width: 50%;
+    margin-left: 5%;
+    margin-bottom: 1em;
+}
+
+.textinput{
+    width: 70%;
+    border: 1px solid blue;
+    border-radius: 10px;
 }

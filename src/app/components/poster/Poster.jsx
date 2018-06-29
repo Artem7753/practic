@@ -1,5 +1,5 @@
 import React from 'react';
-import './../../styles/poster.css';
+import './poster.css';
 
 export default class Poster extends React.Component {
     render() {

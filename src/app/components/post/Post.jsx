@@ -1,13 +1,14 @@
 import React from 'react';
-import '../../styles/post.css';
-import Post__img from './Post__img';
-import Post__info from './Post__info';
+import './post.css';
+import PostImg from './PostImg';
+import PostInfo from './PostInfo';
 
 export default class Post extends React.Component {
     render() {
         return <div className="post">
-           <Post__img image={this.props.image}/>
-           <Post__info buttontext={"More.."} appstate={this.props.appstate}/>
+            <div className="detele-button">X</div>
+           <PostImg image={this.props.image}/>
+           <PostInfo buttontext={"More.."} appstate={this.props.appstate}/>
         </div>
     }
 }

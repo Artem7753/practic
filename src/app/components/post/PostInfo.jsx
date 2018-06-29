@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './button';
 
-export default class Post__info extends React.Component {
+export default class PostInfo extends React.Component {
     render() {
         return <div className="post__info">
             <h3 className="post__info__title">Lorem, ipsum dolor.</h3>

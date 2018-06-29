@@ -21960,13 +21960,17 @@
 
 	var _Post2 = _interopRequireDefault(_Post);
 
-	var _Footer = __webpack_require__(215);
+	var _Footer = __webpack_require__(202);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _FullPost = __webpack_require__(218);
+	var _FullPost = __webpack_require__(201);
 
 	var _FullPost2 = _interopRequireDefault(_FullPost);
+
+	var _TextInput = __webpack_require__(219);
+
+	var _TextInput2 = _interopRequireDefault(_TextInput);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22007,6 +22011,7 @@
 	                _react2.default.createElement(_Post2.default, { image: "http://s.4pda.to/Bjyyg3Tcrv0BdV8Y7mCPSsTswwgDaluY9qeh.jpg", appstate: this.showFullPost }),
 	                _react2.default.createElement(_Post2.default, { image: "https://ivbg.ru/wp-content/uploads/2017/11/34a05f4b_resizedScaled_1020to573-1.jpg", appstate: this.showFullPost }),
 	                _react2.default.createElement(_Post2.default, { image: "https://rozetked.me/images/uploads/RdsxNPHzabgX.jpg", appstate: this.showFullPost }),
+	                _react2.default.createElement(_TextInput2.default, null),
 	                _react2.default.createElement(_Footer2.default, null)
 	            );
 	        }
@@ -22036,13 +22041,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header__logo = __webpack_require__(186);
+	var _HeaderLogo = __webpack_require__(186);
 
-	var _Header__logo2 = _interopRequireDefault(_Header__logo);
+	var _HeaderLogo2 = _interopRequireDefault(_HeaderLogo);
 
-	var _Header__nav = __webpack_require__(187);
+	var _HeaderNav = __webpack_require__(187);
 
-	var _Header__nav2 = _interopRequireDefault(_Header__nav);
+	var _HeaderNav2 = _interopRequireDefault(_HeaderNav);
 
 	__webpack_require__(188);
 
@@ -22069,8 +22074,8 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'header' },
-	                _react2.default.createElement(_Header__logo2.default, null),
-	                _react2.default.createElement(_Header__nav2.default, null)
+	                _react2.default.createElement(_HeaderLogo2.default, null),
+	                _react2.default.createElement(_HeaderNav2.default, null)
 	            );
 	        }
 	    }]);
@@ -22230,8 +22235,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../node_modules/css-loader/index.js!./head.css", function() {
-				var newContent = require("!!../../../node_modules/css-loader/index.js!./head.css");
+			module.hot.accept("!!../../../../node_modules/css-loader/index.js!./head.css", function() {
+				var newContent = require("!!../../../../node_modules/css-loader/index.js!./head.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -22640,8 +22645,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../node_modules/css-loader/index.js!./poster.css", function() {
-				var newContent = require("!!../../../node_modules/css-loader/index.js!./poster.css");
+			module.hot.accept("!!../../../../node_modules/css-loader/index.js!./poster.css", function() {
+				var newContent = require("!!../../../../node_modules/css-loader/index.js!./poster.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -22683,13 +22688,13 @@
 
 	__webpack_require__(196);
 
-	var _Post__img = __webpack_require__(198);
+	var _PostImg = __webpack_require__(198);
 
-	var _Post__img2 = _interopRequireDefault(_Post__img);
+	var _PostImg2 = _interopRequireDefault(_PostImg);
 
-	var _Post__info = __webpack_require__(199);
+	var _PostInfo = __webpack_require__(199);
 
-	var _Post__info2 = _interopRequireDefault(_Post__info);
+	var _PostInfo2 = _interopRequireDefault(_PostInfo);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22714,8 +22719,13 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'post' },
-	                _react2.default.createElement(_Post__img2.default, { image: this.props.image }),
-	                _react2.default.createElement(_Post__info2.default, { buttontext: "More..", appstate: this.props.appstate })
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'detele-button' },
+	                    'X'
+	                ),
+	                _react2.default.createElement(_PostImg2.default, { image: this.props.image }),
+	                _react2.default.createElement(_PostInfo2.default, { buttontext: "More..", appstate: this.props.appstate })
 	            );
 	        }
 	    }]);
@@ -22741,8 +22751,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../node_modules/css-loader/index.js!./post.css", function() {
-				var newContent = require("!!../../../node_modules/css-loader/index.js!./post.css");
+			module.hot.accept("!!../../../../node_modules/css-loader/index.js!./post.css", function() {
+				var newContent = require("!!../../../../node_modules/css-loader/index.js!./post.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -22760,7 +22770,7 @@
 
 
 	// module
-	exports.push([module.id, ".post{\n    display: flex;\n    margin:  1em auto;\n    width: 90%;\n    height: 400px;\n    background: lightblue;\n    justify-content: space-around;\n    border-radius: 10px;\n}\n\n.post__image{\n    width: 45%;\n    padding: 1em;\n}\n\n.post__image__pic{\n    width: 100%;\n    height: 100%;\n    border-radius: 10px;\n}\n\n.post__info{\n    width: 45%;\n    padding: 1em;\n}\n\n.post__info__title{\n    margin: auto;\n}\n\n.post__info__description{\n    width: 70%;\n    padding-top: 1em;\n    overflow: scroll;\n    height: 80%;\n}\n\n.button{\n    width: 50%;\n    padding: 0.5em;\n    background: blue;\n    display: flex;\n}\n\n.button__text{\n    color: white;\n    margin: auto;\n}\n\n.fullpost{\n    display: flex;\n    margin:  1em auto;\n    width: 100%;\n    height: 70%;\n    background: lightblue;\n    justify-content: space-around;\n}\n\n.post-wrapper{\n    position: fixed;\n    z-index: 2;\n    background: rgba(115, 3, 228, 0.603);\n    display: flex;\n    margin: auto;\n    height: 100%;\n    align-items: center;\n    width: 100%;\n}", ""]);
+	exports.push([module.id, ".post{\n    display: flex;\n    margin:  1em auto;\n    width: 90%;\n    height: 400px;\n    background: lightblue;\n    justify-content: space-around;\n    border-radius: 10px;\n    position: relative;\n}\n\n.post__image{\n    width: 45%;\n    padding: 1em;\n}\n\n.post__image__pic{\n    width: 100%;\n    height: 100%;\n    border-radius: 10px;\n}\n\n.post__info{\n    width: 45%;\n    padding: 1em;\n}\n\n.post__info__title{\n    margin: auto;\n}\n\n.post__info__description{\n    width: 70%;\n    padding-top: 1em;\n    overflow: scroll;\n    height: 80%;\n}\n\n.button{\n    width: 50%;\n    padding: 0.5em;\n    background: blue;\n    display: flex;\n}\n\n.button__text{\n    color: white;\n    margin: auto;\n}\n\n.fullpost{\n    display: flex;\n    margin:  1em auto;\n    width: 100%;\n    height: 70%;\n    background: lightblue;\n    justify-content: space-around;\n}\n\n.post-wrapper{\n    position: fixed;\n    z-index: 2;\n    background: rgba(115, 3, 228, 0.603);\n    display: flex;\n    margin: auto;\n    height: 100%;\n    align-items: center;\n    width: 100%;\n}\n\n.detele-button{\n    width: 30px;\n    height: 30px;\n    position: absolute;\n    background: rgba(47, 0, 255, 0.507);\n    border-radius: 10px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    right: 0;\n}\n\n.detele-button:hover{\n    background: rgba(255, 0, 0, 0.719);\n    cursor: pointer;\n}\n\n.inputform{\n    width: 50%;\n    margin-left: 5%;\n    margin-bottom: 1em;\n}\n\n.textinput{\n    width: 70%;\n    border: 1px solid blue;\n    border-radius: 10px;\n}", ""]);
 
 	// exports
 
@@ -22790,16 +22800,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Post__img = function (_React$Component) {
-	    _inherits(Post__img, _React$Component);
+	var PostImg = function (_React$Component) {
+	    _inherits(PostImg, _React$Component);
 
-	    function Post__img() {
-	        _classCallCheck(this, Post__img);
+	    function PostImg() {
+	        _classCallCheck(this, PostImg);
 
-	        return _possibleConstructorReturn(this, (Post__img.__proto__ || Object.getPrototypeOf(Post__img)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (PostImg.__proto__ || Object.getPrototypeOf(PostImg)).apply(this, arguments));
 	    }
 
-	    _createClass(Post__img, [{
+	    _createClass(PostImg, [{
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -22810,10 +22820,10 @@
 	        }
 	    }]);
 
-	    return Post__img;
+	    return PostImg;
 	}(_react2.default.Component);
 
-	exports.default = Post__img;
+	exports.default = PostImg;
 
 /***/ }),
 /* 199 */
@@ -22844,16 +22854,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Post__info = function (_React$Component) {
-	    _inherits(Post__info, _React$Component);
+	var PostInfo = function (_React$Component) {
+	    _inherits(PostInfo, _React$Component);
 
-	    function Post__info() {
-	        _classCallCheck(this, Post__info);
+	    function PostInfo() {
+	        _classCallCheck(this, PostInfo);
 
-	        return _possibleConstructorReturn(this, (Post__info.__proto__ || Object.getPrototypeOf(Post__info)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (PostInfo.__proto__ || Object.getPrototypeOf(PostInfo)).apply(this, arguments));
 	    }
 
-	    _createClass(Post__info, [{
+	    _createClass(PostInfo, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -22874,10 +22884,10 @@
 	        }
 	    }]);
 
-	    return Post__info;
+	    return PostInfo;
 	}(_react2.default.Component);
 
-	exports.default = Post__info;
+	exports.default = PostInfo;
 
 /***/ }),
 /* 200 */
@@ -22896,7 +22906,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _FullPost = __webpack_require__(218);
+	var _FullPost = __webpack_require__(201);
 
 	var _FullPost2 = _interopRequireDefault(_FullPost);
 
@@ -22946,21 +22956,7 @@
 	exports.default = Button;
 
 /***/ }),
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22976,7 +22972,72 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(216);
+	__webpack_require__(196);
+
+	var _PostImg = __webpack_require__(198);
+
+	var _PostImg2 = _interopRequireDefault(_PostImg);
+
+	var _PostInfo = __webpack_require__(199);
+
+	var _PostInfo2 = _interopRequireDefault(_PostInfo);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var FullPost = function (_React$Component) {
+	    _inherits(FullPost, _React$Component);
+
+	    function FullPost() {
+	        _classCallCheck(this, FullPost);
+
+	        return _possibleConstructorReturn(this, (FullPost.__proto__ || Object.getPrototypeOf(FullPost)).apply(this, arguments));
+	    }
+
+	    _createClass(FullPost, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'post-wrapper' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'fullpost' },
+	                    _react2.default.createElement(_PostImg2.default, { image: this.props.image }),
+	                    _react2.default.createElement(_PostInfo2.default, { buttontext: "Back", appstate: this.props.appstate })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return FullPost;
+	}(_react2.default.Component);
+
+	exports.default = FullPost;
+
+/***/ }),
+/* 202 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(203);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23016,13 +23077,13 @@
 	exports.default = Footer;
 
 /***/ }),
-/* 216 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(217);
+	var content = __webpack_require__(204);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(191)(content, {});
@@ -23042,7 +23103,7 @@
 	}
 
 /***/ }),
-/* 217 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(190)();
@@ -23056,7 +23117,21 @@
 
 
 /***/ }),
-/* 218 */
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23072,15 +23147,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(196);
+	var _button = __webpack_require__(200);
 
-	var _Post__img = __webpack_require__(198);
-
-	var _Post__img2 = _interopRequireDefault(_Post__img);
-
-	var _Post__info = __webpack_require__(199);
-
-	var _Post__info2 = _interopRequireDefault(_Post__info);
+	var _button2 = _interopRequireDefault(_button);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23090,35 +23159,31 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var FullPost = function (_React$Component) {
-	    _inherits(FullPost, _React$Component);
+	var TextInput = function (_React$Component) {
+	    _inherits(TextInput, _React$Component);
 
-	    function FullPost() {
-	        _classCallCheck(this, FullPost);
+	    function TextInput() {
+	        _classCallCheck(this, TextInput);
 
-	        return _possibleConstructorReturn(this, (FullPost.__proto__ || Object.getPrototypeOf(FullPost)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (TextInput.__proto__ || Object.getPrototypeOf(TextInput)).apply(this, arguments));
 	    }
 
-	    _createClass(FullPost, [{
+	    _createClass(TextInput, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'post-wrapper' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'fullpost' },
-	                    _react2.default.createElement(_Post__img2.default, { image: this.props.image }),
-	                    _react2.default.createElement(_Post__info2.default, { buttontext: "Back", appstate: this.props.appstate })
-	                )
+	                { className: 'inputform' },
+	                _react2.default.createElement('textarea', { name: '', id: '', cols: '30', rows: '10', className: 'textinput' }),
+	                _react2.default.createElement(_button2.default, { text: "Add" })
 	            );
 	        }
 	    }]);
 
-	    return FullPost;
+	    return TextInput;
 	}(_react2.default.Component);
 
-	exports.default = FullPost;
+	exports.default = TextInput;
 
 /***/ })
 /******/ ]);

@@ -4,6 +4,7 @@ import Poster from './poster/Poster';
 import Post from './post/Post';
 import Footer from './footer/Footer';
 import FullPost from './post/FullPost';
+import TextInput from './post/TextInput';
 
 export default class App extends React.Component{
 
@@ -26,6 +27,7 @@ export default class App extends React.Component{
             <Post image={"http://s.4pda.to/Bjyyg3Tcrv0BdV8Y7mCPSsTswwgDaluY9qeh.jpg"} appstate={this.showFullPost}/>
             <Post image={"https://ivbg.ru/wp-content/uploads/2017/11/34a05f4b_resizedScaled_1020to573-1.jpg"} appstate={this.showFullPost}/>
             <Post image={"https://rozetked.me/images/uploads/RdsxNPHzabgX.jpg"} appstate={this.showFullPost}/>
+            <TextInput/>
             <Footer/>
         </div>
     }
