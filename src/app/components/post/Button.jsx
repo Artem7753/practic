@@ -1,6 +1,4 @@
 import React from 'react';
-import FullPost from './FullPost';
-import App from '../App';
 
 export default class Button extends React.Component{
     render(){

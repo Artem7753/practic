@@ -3,6 +3,7 @@
     padding: 1em;
     background: blue;
     display: flex;
+    align-self: flex-end;
 }
 
 .footer__text{

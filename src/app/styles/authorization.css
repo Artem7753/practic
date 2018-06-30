@@ -1,0 +1,28 @@
+html,
+body, #app, .authorization {
+  height: 100%;
+}
+
+.authorization{
+    display: flex;
+    flex-direction: column;
+}
+
+.form{
+    margin: auto;
+    border: 3px solid blue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+}
+
+.input{
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid lightblue;
+    width: 80%;
+    height: 25%;
+    font-size: 250%;
+}
