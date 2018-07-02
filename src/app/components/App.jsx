@@ -29,7 +29,6 @@ var posts = [
 ];
 
 export default class App extends React.Component{
-
     constructor(){
         super();
         this.state = {condition : false};
@@ -46,7 +45,7 @@ export default class App extends React.Component{
             {this.state.condition && <FullPost image={"https://ivbg.ru/wp-content/uploads/2017/11/34a05f4b_resizedScaled_1020to573-1.jpg"} appstate={this.showFullPost}/>}
             <Header/>
             <Poster/>
-            {posts.map((item) => <Post image={item.image} appstate={this.showFullPost} title={item.title} description={item.description} alt={item.alt}/>)}
+            {posts.map((item, index) => <Post key={index} image={item.image} appstate={this.showFullPost} title={item.title} description={item.description} alt={item.alt}/>)}
             <TextInput/>
             <Footer/>
         </div>

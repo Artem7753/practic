@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Header__nav extends React.Component {
+export default class HeaderNav extends React.Component {
     render() {
         return <nav className="header__nav">
             <ul className="header__nav__menu">

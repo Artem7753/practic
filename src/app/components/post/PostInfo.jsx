@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './button';
+import Button from './Button';
 
 export default class PostInfo extends React.Component {
     render() {

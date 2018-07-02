@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './header/Header';
-import Footer from './footer/Footer';
-import './../styles/authorization.css';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
+import './authorization.css';
 
 export default class Authorization extends React.Component{
 
