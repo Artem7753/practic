@@ -18,10 +18,10 @@ export default class App extends React.Component{
     getPosts(){
         fetch('http://localhost:3000/data')
         .then(response => response.json())
-        .then(response => this.setState({posts: response }));
+        .then(response => this.setState({posts: response }))
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.getPosts();
     }
 

@@ -86,12 +86,16 @@
     width: 50%;
     margin-left: 5%;
     margin-bottom: 1em;
+    border: 3px solid lightblue;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .textinput{
     width: 70%;
     border: 1px solid blue;
     border-radius: 10px;
+    margin: 10px;
 }
 
 .postpage{

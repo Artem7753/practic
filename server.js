@@ -33,4 +33,27 @@ app.get('/post/:id', (req, res) => {
     });
 });
 
+app.get('/delete/:id', (req, res) => {
+    pool.connect((err, connection) => {
+        let id = req.params.id;
+        let query = 'delete from post where id = ' + id;
+        connection.query(query);
+    })
+});
+
+app.put('/insert', (req, res) => {
+    pool.connect((err, connection) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        let title = req.body.title;
+        let description = req.body.description;
+        let image = req.body.image;
+        let id = null;
+        
+       console.log('title :', title, ' description : ' , description, ' image : ' , image , ' id : ' , id);
+
+       // connection.query('insert into post values (?,?,?,?)', [id,title,image,description]);
+      
+    })
+})
+
 app.listen(3000);
