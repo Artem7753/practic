@@ -8,7 +8,7 @@ export default class PostInfo extends React.Component {
             <p className="post__info__description">
                 {this.props.description}
              </p>
-             <Button text={this.props.buttontext} appstate={this.props.appstate}/>
+             <Button text={this.props.buttontext} path={this.props.path}/>
         </div>
     }
 }

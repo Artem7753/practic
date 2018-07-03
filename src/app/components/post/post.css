@@ -58,6 +58,7 @@
 }
 
 .post-wrapper{
+    height: 100%;
     display: flex;
     margin: auto;
     align-items: center;
@@ -100,6 +101,6 @@
 }
 
 html,
-body, #app, .postpage {
+body, #root, .postpage {
   height: 100%;
 }

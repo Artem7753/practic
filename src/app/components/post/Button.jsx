@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Button extends React.Component{
+
     render(){
-        return <div className="button" onClick={() => this.props.appstate()}>
-            <div className="button__text">{this.props.text}</div>
+        return <Link to={""+this.props.path}> <div className="button">
+           <div className="button__text">{this.props.text}</div>
         </div>
+        </Link>
     }
 }

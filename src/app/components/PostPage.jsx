@@ -5,10 +5,29 @@ import Footer from './footer/Footer';
 
 export default class PostPage extends React.Component{
 
+    constructor(){
+        super();
+        this.state = {
+            post : [],
+        };
+    }
+
+    getPost(){
+        let id = document.location.href.split('post')[1];
+        fetch('http://localhost:3000/post' + id)
+        .then(response => response.json())
+        .then(response => this.setState({post: response[0] }));
+    }
+
+    componentDidMount(){
+        this.getPost();
+    }
+
     render(){
         return <div className="postpage">
+        {console.log(this.state.post)}
             <Header/>
-            <FullPost image={"https://ivbg.ru/wp-content/uploads/2017/11/34a05f4b_resizedScaled_1020to573-1.jpg"} appstate={this.showFullPost}/>
+            <FullPost image={this.state.post.image} title={this.state.post.title} description={this.state.post.description}/>
             <Footer/>
         </div>
     }
