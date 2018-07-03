@@ -10,7 +10,7 @@ let pool = new pg.Pool({
     database: 'blog'
 });
 
-app.get('/data' , (req, res) => {
+app.get('/data', (req, res) => {
     pool.connect(((err, connection) => {
         connection.query('select * from post', (err, table) => {
             res.setHeader("Access-Control-Allow-Origin", "*");
@@ -27,7 +27,7 @@ app.get('/post/:id', (req, res) => {
         console.log(id);
         connection.query(query, (err, table) => {
             res.setHeader("Access-Control-Allow-Origin", "*");
-             res.send(JSON.stringify(table.rows));
+            res.send(JSON.stringify(table.rows));
             console.log("data sended");
         });
     });
@@ -38,6 +38,8 @@ app.get('/delete/:id', (req, res) => {
         let id = req.params.id;
         let query = 'delete from post where id = ' + id;
         connection.query(query);
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.send('success');
     })
 });
 
@@ -48,12 +50,13 @@ app.put('/insert', (req, res) => {
         let description = req.body.description;
         let image = req.body.image;
         let id = null;
-        
-       console.log('title :', title, ' description : ' , description, ' image : ' , image , ' id : ' , id);
 
-       // connection.query('insert into post values (?,?,?,?)', [id,title,image,description]);
-      
+        console.log('title :', title, ' description : ', description, ' image : ', image, ' id : ', id);
+
+        connection.query('insert into post values (?,?,?,?)', [id,title,image,description]);
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.send('success');
     })
 })
 
-app.listen(3000);
+app.listen(3001);
