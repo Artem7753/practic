@@ -3,26 +3,25 @@ import React from 'react';
 export default class AddButton extends React.Component{
 
     render(){
-        return  <div className="button" onClick={() => {
+        return  <a href="/"><div className="button" onClick={() => {
 
-            console.log(this.props.inputs.title.value);
-            console.log(this.props.inputs.image.value);
-            console.log(this.props.inputs.description.value);
+            console.log(this.props.inputs.title);
+            console.log(this.props.inputs.image);
+            console.log(this.props.inputs.description);
 
             let data = {
-                title : 'afaf',
-                image : 'adsda',
-                description : "adaafasf"
+                title : this.props.inputs.title,
+                image : this.props.inputs.image,
+                description : this.props.inputs.description
             } ;
-
-            var request = new XMLHttpRequest();
-             request.open("put", "http://localhost:3000/insert");
-             request.setRequestHeader("Content-type", "Application/json");
-             request.send(data);
-
+            fetch('http://localhost:3000/insert', {  
+                method: 'POST',  
+                mode: 'cors',
+                body: JSON.stringify(data),
+              });
               console.log('request');
         }}>
            <div className="button__text">{this.props.text}</div>
-        </div>
+        </div></a>
     }
 }

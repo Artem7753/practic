@@ -1,6 +1,9 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let pg = require('pg');
+let session = require('express-session');
+let cookieParser = require('cookie-parser');
+let pgSession = require('connect-pg-simple')(session);
 
 let app = express();
 
@@ -9,10 +12,27 @@ let pool = new pg.Pool({
     password: '',
     database: 'blog'
 });
+let sid = false;
+
+app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+//app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
+app.use(session({
+    store: new pgSession({
+      pool : pool,                // Connection pool
+      tableName : 'session'  
+    }),
+    secret: 'topsecret',
+    resave: true,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+  }));
 
 app.get('/data', (req, res) => {
     pool.connect(((err, connection) => {
         connection.query('select * from post', (err, table) => {
+            console.log(err);
             res.setHeader("Access-Control-Allow-Origin", "*");
             res.send(JSON.stringify(table.rows));
             console.log("data sended");
@@ -43,20 +63,70 @@ app.get('/delete/:id', (req, res) => {
     })
 });
 
-app.put('/insert', (req, res) => {
+app.post('/insert', (req, res) => {
     pool.connect((err, connection) => {
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        let title = req.body.title;
-        let description = req.body.description;
-        let image = req.body.image;
-        let id = null;
-
-        console.log('title :', title, ' description : ', description, ' image : ', image, ' id : ', id);
-
-        connection.query('insert into post values (?,?,?,?)', [id,title,image,description]);
+        if(req.body){
+            let body = JSON.parse(req.body);
+        let { title, description, image, id = null } = body;
+        connection.query('select id from post order by id desc limit 1', (err,table)=>{
+            id = 1 + table.rows[0].id;
+            let query = `insert into post values (${id},'${title}','${image}','${description}')`;
+            console.log(query);
+            console.log('title :', title, ' description : ', description, ' image : ', image, ' id : ', id);
+            connection.query(query ,(err, table) => console.log(err));
+        });
+        
+      
+       
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.send('success');
+        }
     })
+});
+
+app.post('/user', (req, res) => {
+    console.log('request');
+    pool.connect((err, connection) => {
+        let body = JSON.parse(req.body);
+        let { login, password} = body;
+        let query = `select * from users where login = '${login}'`;
+        connection.query(query, (err, table) => {
+            console.log(table.rows[0].password);
+            if(table.rows[0].password == password){
+                console.log('ok!');
+                req.session.userName = login;
+                req.session.admin = table.rows[0].admin;
+                sid = req.session.id;
+                console.log(req.session);
+            }
+        });
+       
+        console.log('2 - ',req.session);
+        res.setHeader("Access-Control-Allow-Origin", "*");
+         res.send('success');
+    })
+});
+
+app.get('/check', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    if(sid){
+        let query = `select * from session where sid = '${sid}'`;
+        pool.connect((err, connection) => {
+            connection.query(query, (err, table) => {
+                
+                res.send(JSON.stringify(table.rows[0].sess));
+                console.log("data checked");
+                console.log(table.rows[0].sess);
+            })
+        });
+    }
+    else  res.send(JSON.stringify({})); 
+    
 })
 
-app.listen(3001);
+
+
+
+
+
+app.listen(3000);

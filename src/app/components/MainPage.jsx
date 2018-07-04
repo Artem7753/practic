@@ -12,6 +12,8 @@ export default class App extends React.Component{
         this.state = {
             condition : false,
             posts : [],
+            admin : 0,
+            userName : ''
         };
     }
 
@@ -21,17 +23,28 @@ export default class App extends React.Component{
         .then(response => this.setState({posts: response }))
     }
 
-    componentWillMount(){
+    isAdmin(){
+        fetch('http://localhost:3000/check', {  
+                method: 'GET',  
+                mode: 'cors',
+              })
+              .then(response => response.json())
+              .then(response => this.setState({admin: response.admin, userName : response.userName}))
+    }
+
+    componentDidMount(){
+        this.isAdmin();
         this.getPosts();
     }
 
     render(){
+       
         return <div>
-            <Header/>
+            <Header user={this.state.userName}/>
             <Poster/>
             {this.state.posts.map((item, index) => 
-                <Post key={index} id={item.id} image={item.image} title={item.title} description={item.description} alt={item.alt}/>)}
-            <TextInput/>
+                <Post key={index} admin={+this.state.admin} id={item.id} image={item.image} title={item.title} description={item.description} alt={item.alt}/>)}
+           {+this.state.admin == 1 &&  <TextInput/>}
             <Footer/>
         </div>
     }
