@@ -17,7 +17,7 @@ let sid = false;
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+//app.use(cookieParser());
 //app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 app.use(session({
     store: new pgSession({
@@ -84,6 +84,7 @@ app.post('/insert', (req, res) => {
     })
 });
 
+
 app.post('/user', (req, res) => {
     console.log('request');
     pool.connect((err, connection) => {
@@ -126,7 +127,16 @@ app.get('/check', (req, res) => {
 
 
 
-
+app.get('/lastId', (req, res) => {
+    pool.connect(((err, connection) => {
+        connection.query('select id from post order by id desc limit 1', (err, table) => {
+            console.log(err);
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.send(JSON.stringify(table.rows));
+            console.log("data sended");
+        })
+    }));
+});
 
 
 app.listen(3000);

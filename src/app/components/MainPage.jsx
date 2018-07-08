@@ -3,8 +3,9 @@ import Header from './header/Header';
 import Poster from './poster/Poster';
 import Post from './post/Post';
 import Footer from './footer/Footer';
-import FullPost from './post/FullPost';
 import TextInput from './post/TextInput';
+import {getPosts} from '../actions/postsAction';
+import PostsStore from '../stores/postStore';
 
 export default class App extends React.Component{
     constructor(){
@@ -15,12 +16,8 @@ export default class App extends React.Component{
             admin : 0,
             userName : ''
         };
-    }
 
-    getPosts(){
-        fetch('http://localhost:3000/data')
-        .then(response => response.json())
-        .then(response => this.setState({posts: response }))
+        this.onPostChange = this.onPostChange.bind(this);
     }
 
     isAdmin(){
@@ -34,7 +31,15 @@ export default class App extends React.Component{
 
     componentDidMount(){
         this.isAdmin();
-        this.getPosts();
+        getPosts();
+    }
+
+    componentWillMount(){
+        PostsStore.on('change', this.onPostChange )
+    }
+
+    onPostChange(posts){
+        this.setState({posts});
     }
 
     render(){
@@ -44,7 +49,7 @@ export default class App extends React.Component{
             <Poster/>
             {this.state.posts.map((item, index) => 
                 <Post key={index} admin={+this.state.admin} id={item.id} image={item.image} title={item.title} description={item.description} alt={item.alt}/>)}
-           {+this.state.admin == 1 &&  <TextInput/>}
+           {+this.state.admin == 1 ||  <TextInput/>}
             <Footer/>
         </div>
     }

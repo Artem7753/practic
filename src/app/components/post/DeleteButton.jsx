@@ -1,9 +1,10 @@
 import React from 'react';
+import {deletePost} from '../../actions/postsAction'
 
 export default class DeleteButton extends React.Component{
     render(){
-        return <a href="/"><div className="detele-button" onClick={() => {
-            fetch('http://localhost:3000/delete/' + this.props.id);
-        }}>X</div></a>
+        return <div className="detele-button" onClick={() => {
+            deletePost(this.props.id);
+        }}>X</div>
     }
 }
