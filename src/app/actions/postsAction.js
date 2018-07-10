@@ -12,9 +12,7 @@ export function addPost(title, image, description, id){
 
 export function getPosts(){
     fetch('http://localhost:3000/data', {  
-        method: 'GET',  
-        credentials: 'same-origin',
-        mode: 'cors',
+        credentials: 'include',
       })
     .then((response) => response.json())
     .then((response) => {
@@ -26,7 +24,9 @@ export function getPosts(){
 }
 
 export function deletePost(id){
-    fetch('http://localhost:3000/delete/'+id);
+    fetch('http://localhost:3000/delete/'+id, {
+        credentials: 'include',
+    });
     dispatcher.dispatch({
         type : DELETE_POST,
         payload : id

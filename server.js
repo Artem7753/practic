@@ -33,7 +33,8 @@ app.get('/data', (req, res) => {
     pool.connect(((err, connection) => {
         connection.query('select * from post', (err, table) => {
             console.log(err);
-            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+            res.setHeader("Access-Control-Allow-Credentials", "true");
             res.send(JSON.stringify(table.rows));
             console.log("data sended");
         })
@@ -46,7 +47,8 @@ app.get('/post/:id', (req, res) => {
         let query = 'select * from post where id =' + id;
         console.log(id);
         connection.query(query, (err, table) => {
-            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+            res.setHeader("Access-Control-Allow-Credentials", "true");
             res.send(JSON.stringify(table.rows));
             console.log("data sended");
         });
@@ -58,7 +60,8 @@ app.get('/delete/:id', (req, res) => {
         let id = req.params.id;
         let query = 'delete from post where id = ' + id;
         connection.query(query);
-        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+        res.setHeader("Access-Control-Allow-Credentials", "true");
         res.send('success');
     })
 });
@@ -78,7 +81,8 @@ app.post('/insert', (req, res) => {
         
       
        
-        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+        res.setHeader("Access-Control-Allow-Credentials", "true");
         res.send('success');
         }
     })
@@ -103,13 +107,15 @@ app.post('/user', (req, res) => {
         });
        
         console.log('2 - ',req.session);
-        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+        res.setHeader("Access-Control-Allow-Credentials", "true");
          res.send('success');
     })
 });
 
 app.get('/check', (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
     if(sid){
         let query = `select * from session where sid = '${sid}'`;
         pool.connect((err, connection) => {
@@ -131,7 +137,8 @@ app.get('/lastId', (req, res) => {
     pool.connect(((err, connection) => {
         connection.query('select id from post order by id desc limit 1', (err, table) => {
             console.log(err);
-            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+            res.setHeader("Access-Control-Allow-Credentials", "true");
             res.send(JSON.stringify(table.rows));
             console.log("data sended");
         })

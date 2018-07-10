@@ -22,8 +22,8 @@ export default class App extends React.Component{
 
     isAdmin(){
         fetch('http://localhost:3000/check', {  
-                method: 'GET',  
-                mode: 'cors',
+                method: 'GET',
+                credentials: 'include',
               })
               .then(response => response.json())
               .then(response => this.setState({admin: response.admin, userName : response.userName}))

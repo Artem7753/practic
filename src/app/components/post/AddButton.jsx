@@ -15,7 +15,6 @@ export default class AddButton extends React.Component{
         fetch('http://localhost:3000/lastId', {  
             method: 'GET',  
             credentials: 'include',
-            mode: 'cors',
           }).then((response) => response.json())
           .then((response) => this.setState({lastId : response[0].id}))
     }
@@ -27,8 +26,7 @@ export default class AddButton extends React.Component{
             description : this.props.inputs.description
         } ;
         fetch('http://localhost:3000/insert', {  
-            method: 'POST',  
-            mode: 'cors',
+            method: 'POST',
             credentials: 'include',
             body: JSON.stringify(data),
           });

@@ -14,7 +14,9 @@ export default class PostPage extends React.Component{
 
     getPost(){
         let id = document.location.href.split('post')[1];
-        fetch('http://localhost:3000/post' + id)
+        fetch('http://localhost:3000/post' + id, {
+            credentials: 'include',
+        })
         .then(response => response.json())
         .then(response => this.setState({post: response[0] }));
     }

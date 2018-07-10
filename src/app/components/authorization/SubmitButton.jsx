@@ -6,8 +6,8 @@ export default class SubmitButton extends React.Component{
         return  <a href="/"><div className="button" onClick={() => {
             let data = {login : this.props.data.login, password : this.props.data.password} ;
             fetch('http://localhost:3000/user', {  
-                method: 'POST',  
-                mode: 'cors',
+                method: 'POST',
+                credentials: 'include',
                 body: JSON.stringify(data),
               });
               console.log('request');
