@@ -6,8 +6,11 @@ import Footer from './footer/Footer';
 import TextInput from './post/TextInput';
 import {getPosts} from '../actions/postsAction';
 import PostsStore from '../stores/postStore';
+import {connect} from 'react-redux';
+import reduxAction from '../actions/ReduxActions';
+import store from '../stores/reduxStore';
 
-export default class App extends React.Component{
+class App extends React.Component{
     constructor(){
         super();
         this.state = {
@@ -16,12 +19,10 @@ export default class App extends React.Component{
             admin : 0,
             userName : ''
         };
-
-        this.onPostChange = this.onPostChange.bind(this);
     }
 
     isAdmin(){
-        fetch('http://localhost:3000/check', {  
+        return fetch('http://localhost:3000/check', {  
                 method: 'GET',
                 credentials: 'include',
               })
@@ -31,26 +32,34 @@ export default class App extends React.Component{
 
     componentDidMount(){
         this.isAdmin();
-        getPosts();
+       // getPosts();
+       let posts = reduxAction.getPosts();
+           this.props.dispatch(posts);
+       console.log(this.props.posts);
     }
 
-    componentWillMount(){
-        PostsStore.on('change', this.onPostChange )
-    }
-
-    onPostChange(posts){
-        this.setState({posts});
-    }
+      
 
     render(){
+        console.log(this.props.posts);
        
         return <div>
             <Header user={this.state.userName}/>
             <Poster/>
-            {this.state.posts.map((item, index) => 
+            {this.props.posts.map((item, index) => 
                 <Post key={index} admin={+this.state.admin} id={item.id} image={item.image} title={item.title} description={item.description} alt={item.alt}/>)}
-           {+this.state.admin == 1 ||  <TextInput/>}
+           {+this.state.admin == 1 &&  <TextInput/>}
             <Footer/>
         </div>
     }
 }
+
+function mapStateToProps(store){
+    console.log(store.posts.posts);
+    return {
+        posts : store.posts.posts,
+        is_loading : store.posts.is_loading
+    }
+}
+
+export default connect(mapStateToProps)(App);

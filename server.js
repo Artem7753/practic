@@ -32,13 +32,13 @@ app.use(session({
 app.get('/data', (req, res) => {
     pool.connect(((err, connection) => {
         connection.query('select * from post', (err, table) => {
-            console.log(err);
             res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
             res.setHeader("Access-Control-Allow-Credentials", "true");
             res.send(JSON.stringify(table.rows));
-            console.log("data sended");
-        })
+        });
+        connection.release();
     }));
+    console.log('request data');
 });
 
 app.get('/post/:id', (req, res) => {
@@ -52,7 +52,9 @@ app.get('/post/:id', (req, res) => {
             res.send(JSON.stringify(table.rows));
             console.log("data sended");
         });
+        connection.release();
     });
+    console.log('request post');
 });
 
 app.get('/delete/:id', (req, res) => {
@@ -63,7 +65,9 @@ app.get('/delete/:id', (req, res) => {
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.send('success');
-    })
+        connection.release();
+    });
+    console.log('request delete');
 });
 
 app.post('/insert', (req, res) => {
@@ -78,14 +82,15 @@ app.post('/insert', (req, res) => {
             console.log('title :', title, ' description : ', description, ' image : ', image, ' id : ', id);
             connection.query(query ,(err, table) => console.log(err));
         });
-        
+        connection.release();
       
        
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.send('success');
         }
-    })
+    });
+    console.log('request add new post');
 });
 
 
@@ -110,7 +115,9 @@ app.post('/user', (req, res) => {
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
         res.setHeader("Access-Control-Allow-Credentials", "true");
          res.send('success');
-    })
+         connection.release();
+    });
+    console.log('request autorization');
 });
 
 app.get('/check', (req, res) => {
@@ -124,10 +131,13 @@ app.get('/check', (req, res) => {
                 res.send(JSON.stringify(table.rows[0].sess));
                 console.log("data checked");
                 console.log(table.rows[0].sess);
-            })
+            });
+            connection.release();
         });
     }
     else  res.send(JSON.stringify({})); 
+
+    console.log('request check');
     
 })
 
@@ -141,7 +151,8 @@ app.get('/lastId', (req, res) => {
             res.setHeader("Access-Control-Allow-Credentials", "true");
             res.send(JSON.stringify(table.rows));
             console.log("data sended");
-        })
+        });
+        connection.release();
     }));
 });
 
